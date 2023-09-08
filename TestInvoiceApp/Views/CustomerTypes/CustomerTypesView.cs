@@ -12,18 +12,18 @@ using TestInvoiceApp.Presenters;
 
 namespace TestInvoiceApp.Views
 {
-    public partial class TipoEmpleadoView : Form
+    public partial class CustomerTypesView : Form
     {
         private readonly CustomerTypesPresenter _customerTypesPresenter = new CustomerTypesPresenter();
 
-        public TipoEmpleadoView()
+        public CustomerTypesView()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (var popupForm = new CrearTipoEmpleadoPopup())
+            using (var popupForm = new CreateCustomerTypePopup())
             {
                 if (popupForm.ShowDialog() == DialogResult.OK)
                 {

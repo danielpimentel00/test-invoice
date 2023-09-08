@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TestInvoiceApp.Views
 {
-    public partial class CrearTipoEmpleadoPopup : Form
+    public partial class CreateCustomerTypePopup : Form
     {
-        public CrearTipoEmpleadoPopup()
+        public CreateCustomerTypePopup()
         {
             InitializeComponent();
         }

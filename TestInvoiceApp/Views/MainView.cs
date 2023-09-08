@@ -21,7 +21,7 @@ namespace TestInvoiceApp.Views
         private void button1_Click(object sender, EventArgs e)
         {
             var customerTypesPresenter = new CustomerTypesPresenter();
-            var tipoEmpleadoView = new TipoEmpleadoView();
+            var tipoEmpleadoView = new CustomerTypesView();
             customerTypesPresenter.InitializeCustomerTypesView(tipoEmpleadoView);
         }
     }
