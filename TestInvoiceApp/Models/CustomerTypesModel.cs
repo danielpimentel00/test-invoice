@@ -10,10 +10,12 @@ namespace TestInvoiceApp.Models
     public class CustomerTypesModel
     {
 		private readonly Test_InvoiceEntities _context;
+
         public CustomerTypesModel()
 		{
 			_context = new Test_InvoiceEntities();
 		}
+
         public List<CustomerType> GetCustomerTypes() {
 			try
 			{
@@ -25,5 +27,34 @@ namespace TestInvoiceApp.Models
 				throw;
 			}
         }
+
+		public void AddCustomerType(string description)
+		{
+			try
+			{
+				_context.CustomerTypes.Add(new CustomerType
+				{
+					Description = description
+				});
+				_context.SaveChanges();
+			}
+			catch (Exception)
+			{ 
+				throw;
+			}
+		}
+
+		public void RemoveCustomerType(CustomerType model)
+		{
+			try
+			{
+				_context.CustomerTypes.Remove(model);
+				_context.SaveChanges();
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+		}
     }
 }

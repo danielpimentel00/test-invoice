@@ -7,22 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TestInvoiceApp.Presenters;
 
 namespace TestInvoiceApp.Views
 {
-    public partial class MainView : Form
+    public partial class CrearTipoEmpleadoPopup : Form
     {
-        public MainView()
+        public CrearTipoEmpleadoPopup()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var customerTypesPresenter = new CustomerTypesPresenter();
-            var tipoEmpleadoView = new TipoEmpleadoView();
-            customerTypesPresenter.InitializeCustomerTypesView(tipoEmpleadoView);
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

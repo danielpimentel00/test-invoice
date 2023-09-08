@@ -10,20 +10,40 @@ namespace TestInvoiceApp.Presenters
 {
     public class CustomerTypesPresenter
     {
-        private readonly TipoEmpleadoView _customerTypeView;
         private readonly CustomerTypesModel _customerTypeModel;
+
         public CustomerTypesPresenter()
         {
-            _customerTypeView = new TipoEmpleadoView();
             _customerTypeModel = new CustomerTypesModel();
         }
-        public void InitializeCustomerTypesView()
+
+        public void InitializeCustomerTypesView(TipoEmpleadoView view)
         {
             var data = _customerTypeModel.GetCustomerTypes();
-            _customerTypeView.listBox1.DataSource = data;
-            _customerTypeView.listBox1.DisplayMember = "Description";
-            _customerTypeView.Refresh();
-            _customerTypeView.Show();
+            view.listBox1.DataSource = data;
+            view.listBox1.DisplayMember = "Description";
+            view.Refresh();
+            view.Show();
+        }
+
+        public void CreateCustomerType(string description, TipoEmpleadoView view)
+        {
+            _customerTypeModel.AddCustomerType(description);
+
+            var updatedData = _customerTypeModel.GetCustomerTypes();
+            view.listBox1.DataSource = updatedData;
+            view.listBox1.DisplayMember = "Description";
+            view.Refresh();
+        }
+
+        public void RemoveCustomerType(CustomerType model, TipoEmpleadoView view)
+        {
+            _customerTypeModel.RemoveCustomerType(model);
+
+            var updatedData = _customerTypeModel.GetCustomerTypes();
+            view.listBox1.DataSource = updatedData;
+            view.listBox1.DisplayMember = "Description";
+            view.Refresh();
         }
     }
 }
