@@ -35,6 +35,8 @@
             this.Adress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +52,8 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -60,9 +63,10 @@
             this.CustomerType});
             this.dataGridView1.Location = new System.Drawing.Point(60, 105);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(770, 182);
+            this.dataGridView1.Size = new System.Drawing.Size(649, 182);
             this.dataGridView1.TabIndex = 2;
             // 
             // Id
@@ -106,15 +110,36 @@
             this.CustomerType.Name = "CustomerType";
             this.CustomerType.Width = 125;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(732, 154);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(99, 45);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Eliminar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(732, 105);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 43);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Crear";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // CustomersView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(881, 498);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Name = "CustomersView";
-            this.Text = "CustomersView";
+            this.Text = "Clientes";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -130,5 +155,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Adress;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerType;
+        public System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

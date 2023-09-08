@@ -27,5 +27,18 @@ namespace TestInvoiceApp.Models
                 throw;
             }
         }
+
+        public void CreateCustomer(Customer customer)
+        {
+            try
+            {
+                _context.Customers.Add(customer);
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

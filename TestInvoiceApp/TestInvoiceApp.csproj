@@ -91,6 +91,12 @@
     <Compile Include="Presenters\CustomerTypesPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Customers\CreateCustomerPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Customers\CreateCustomerPopup.Designer.cs">
+      <DependentUpon>CreateCustomerPopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Customers\CustomersView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Customers\CreateCustomerPopup.resx">
+      <DependentUpon>CreateCustomerPopup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Customers\CustomersView.resx">
       <DependentUpon>CustomersView.cs</DependentUpon>
     </EmbeddedResource>

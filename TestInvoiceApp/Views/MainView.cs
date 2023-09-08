@@ -29,8 +29,8 @@ namespace TestInvoiceApp.Views
         private void button2_Click(object sender, EventArgs e)
         {
             var customersView = new CustomersView();
-            var customersPresenter = new CustomersPresenter();
-            customersPresenter.InitializeCustomersView(customersView);
+            var customersPresenter = new CustomersPresenter(customersView);
+            customersPresenter.InitializeCustomersView();
         }
     }
 }
