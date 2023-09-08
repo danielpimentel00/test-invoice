@@ -61,6 +61,7 @@
     <Compile Include="Models\Customer.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomersModel.cs" />
     <Compile Include="Models\CustomerType.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
@@ -86,9 +87,16 @@
     <Compile Include="Models\InvoiceDetail.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Presenters\CustomersPresenter.cs" />
     <Compile Include="Presenters\CustomerTypesPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Customers\CustomersView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Customers\CustomersView.Designer.cs">
+      <DependentUpon>CustomersView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CustomerTypes\CreateCustomerTypePopup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +124,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Customers\CustomersView.resx">
+      <DependentUpon>CustomersView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\CustomerTypes\CreateCustomerTypePopup.resx">
       <DependentUpon>CreateCustomerTypePopup.cs</DependentUpon>
     </EmbeddedResource>

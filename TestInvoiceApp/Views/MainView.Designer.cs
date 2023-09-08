@@ -46,11 +46,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(325, 100);
+            this.button1.Location = new System.Drawing.Point(325, 293);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 55);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Tipos de empleado";
+            this.button1.Text = "Tipos de cliente";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -62,10 +62,11 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Clientes";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(325, 286);
+            this.button3.Location = new System.Drawing.Point(325, 95);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(121, 55);
             this.button3.TabIndex = 3;
@@ -82,7 +83,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "MainView";
-            this.Text = "MainView";
+            this.Text = "Sistema de Facturación";
             this.ResumeLayout(false);
             this.PerformLayout();
 
