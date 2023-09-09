@@ -48,8 +48,12 @@ namespace TestInvoiceApp.Models
 		{
 			try
 			{
-				_context.CustomerTypes.Remove(model);
-				_context.SaveChanges();
+                var customerToDeleted = _context.CustomerTypes.FirstOrDefault(c => c.Id == model.Id);
+                if (customerToDeleted != null)
+                {
+                    _context.CustomerTypes.Remove(customerToDeleted);
+                    _context.SaveChanges();
+                }
 			}
 			catch (Exception)
 			{

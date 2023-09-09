@@ -30,22 +30,16 @@ namespace TestInvoiceApp.Presenters
         public void InitializeCustomersView()
         {
             var data = _customersModel.GetCustomers();
-
             _customersView.dataGridView1.AutoGenerateColumns = false;
             _customersView.dataGridView1.DataSource = data;
-
-            //view.dataGridView1.Columns.Add("CustName", "Nombre");
-            //view.dataGridView1.Columns.Add("Adress", "Dirección");
-            //view.dataGridView1.Columns.Add("Status", "Estatus");
-            //view.dataGridView1.Columns.Add("CustomerTypeId", "Tipo de Cliente");
-
-            //view.dataGridView1.Columns["Id"].DataPropertyName = "Id";
-            //view.dataGridView1.Columns["CustName"].DataPropertyName = "CustName";
-            //view.dataGridView1.Columns["Adress"].DataPropertyName = "Adress";
-            //view.dataGridView1.Columns["Status"].DataPropertyName = "Status";
-            //view.dataGridView1.Columns["CustomerTypeId"].DataPropertyName = "CustomerTypeId";
-
             _customersView.Show();
+        }
+
+        public void RefreshDataGrid()
+        {
+            var updatedData = _customersModel.GetCustomers();
+            _customersView.dataGridView1.AutoGenerateColumns = false;
+            _customersView.dataGridView1.DataSource = updatedData;
         }
 
         public void InitializeCreateCustomerForm()
@@ -88,7 +82,27 @@ namespace TestInvoiceApp.Presenters
             };
 
             _customersModel.CreateCustomer(customerModel);
+            _createCustomerView.DialogResult = DialogResult.OK;
             _createCustomerView.Close();
+        }
+
+        public void RemoveCustomers(List<Customer> customers)
+        {
+            foreach (var customer in customers)
+            {
+                _customersModel.RemoveCustomer(customer);
+            }
+
+            //var updatedData = _customersModel.GetCustomers();
+            //_customersView.dataGridView1.AutoGenerateColumns = false;
+            //_customersView.dataGridView1.DataSource = updatedData;
+
+            var dataSource = _customersView.dataGridView1.DataSource as List<Customer>;
+
+            dataSource.RemoveAll(customer => customers.Contains(customer));
+
+            _customersView.dataGridView1.DataSource = null;
+            _customersView.dataGridView1.DataSource = dataSource;
         }
     }
 }

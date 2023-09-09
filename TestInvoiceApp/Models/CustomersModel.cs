@@ -40,5 +40,22 @@ namespace TestInvoiceApp.Models
                 throw;
             }
         }
+
+        public void RemoveCustomer(Customer model)
+        {
+            try
+            {
+                var customerToDeleted = _context.Customers.FirstOrDefault(c => c.Id == model.Id);
+                if (customerToDeleted != null)
+                {
+                    _context.Customers.Remove(customerToDeleted);
+                    _context.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
