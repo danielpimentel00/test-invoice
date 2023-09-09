@@ -93,10 +93,6 @@ namespace TestInvoiceApp.Presenters
                 _customersModel.RemoveCustomer(customer);
             }
 
-            //var updatedData = _customersModel.GetCustomers();
-            //_customersView.dataGridView1.AutoGenerateColumns = false;
-            //_customersView.dataGridView1.DataSource = updatedData;
-
             var dataSource = _customersView.dataGridView1.DataSource as List<Customer>;
 
             dataSource.RemoveAll(customer => customers.Contains(customer));

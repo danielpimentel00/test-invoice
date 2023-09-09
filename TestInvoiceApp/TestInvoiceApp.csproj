@@ -89,6 +89,7 @@
     </Compile>
     <Compile Include="Presenters\CustomersPresenter.cs" />
     <Compile Include="Presenters\CustomerTypesPresenter.cs" />
+    <Compile Include="Presenters\ErrorsPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Customers\CreateCustomerPopup.cs">
