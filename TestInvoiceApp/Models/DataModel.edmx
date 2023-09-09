@@ -37,7 +37,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="InvoiceId" Type="int" Nullable="false" />
           <Property Name="Qty" Type="int" Nullable="false" />
           <Property Name="Price" Type="money" Nullable="false" />
           <Property Name="TotalItbis" Type="money" Nullable="false" />
@@ -80,7 +80,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="InvoiceDetail">
-              <PropertyRef Name="CustomerId" />
+              <PropertyRef Name="InvoiceId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -144,7 +144,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceId" Type="Int32" Nullable="false" />
           <Property Name="Qty" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="TotalItbis" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
@@ -188,7 +188,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="InvoiceDetail">
-              <PropertyRef Name="CustomerId" />
+              <PropertyRef Name="InvoiceId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -250,7 +250,7 @@
             <EntityTypeMapping TypeName="Test_InvoiceModel.InvoiceDetail">
               <MappingFragment StoreEntitySet="InvoiceDetail">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
                 <ScalarProperty Name="Qty" ColumnName="Qty" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="TotalItbis" ColumnName="TotalItbis" />

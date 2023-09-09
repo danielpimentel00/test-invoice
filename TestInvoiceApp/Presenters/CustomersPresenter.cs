@@ -51,6 +51,11 @@ namespace TestInvoiceApp.Presenters
             _createCustomerView.ShowDialog();
         }
 
+        public List<CustomerType> GetCustomerTypes()
+        {
+            return _customerTypesModel.GetCustomerTypes();
+        }
+
         public void CreateCustomer()
         {
             CustomerType selectedCustomerType = (CustomerType)_createCustomerView.customerType_comboBox.SelectedItem;

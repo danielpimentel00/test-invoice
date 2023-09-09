@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestInvoiceApp.Presenters;
 using TestInvoiceApp.Views.Customers;
+using TestInvoiceApp.Views.Invoice;
 
 namespace TestInvoiceApp.Views
 {
@@ -31,6 +32,13 @@ namespace TestInvoiceApp.Views
             var customersView = new CustomersView();
             var customersPresenter = new CustomersPresenter(customersView);
             customersPresenter.InitializeCustomersView();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var invoiceView = new InvoiceView();
+            var invoicePresenter = new InvoicePresenter(invoiceView);
+            invoicePresenter.InitializeInvoiceView();
         }
     }
 }

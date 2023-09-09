@@ -14,10 +14,11 @@ namespace TestInvoiceApp.Views.Customers
 {
     public partial class CustomersView : Form
     {
-
+        private readonly CustomersPresenter _customersPresenter;
         public CustomersView()
         {
             InitializeComponent();
+            _customersPresenter = new CustomersPresenter(this);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -25,13 +26,12 @@ namespace TestInvoiceApp.Views.Customers
             using (var createCustomerView = new CreateCustomerPopup())
             {
                 var customersPresenter = new CustomersPresenter(createCustomerView);
-                var customersPresenter2 = new CustomersPresenter(this);
 
                 createCustomerView.FormClosed += (s, args) =>
                 {
                     if (createCustomerView.DialogResult == DialogResult.OK)
                     {
-                        customersPresenter2.RefreshDataGrid();
+                        _customersPresenter.RefreshDataGrid();
                     }
                 };
 
@@ -61,6 +61,34 @@ namespace TestInvoiceApp.Views.Customers
             }
 
             customersPresenter.RemoveCustomers(selectedCustomers);
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 3)
+            {
+                if (e.Value is bool)
+                {
+                    bool value = (bool)e.Value;
+                    e.Value = value ? "Activo" : "Inactivo";
+                    e.FormattingApplied = true;
+                }
+            }
+
+            if (e.RowIndex >= 0 && e.ColumnIndex == 4)
+            {
+                if (e.Value != null && !string.IsNullOrEmpty(e.Value.ToString()))
+                {
+                    int customerTypeId = Convert.ToInt32(e.Value);
+                    var customerType = _customersPresenter.GetCustomerTypes().FirstOrDefault(ct => ct.Id == customerTypeId);
+
+                    if (customerType != null)
+                    {
+                        e.Value = customerType.Description;
+                        e.FormattingApplied = true; // Marca como formateado
+                    }
+                }
+            }
         }
     }
 }
